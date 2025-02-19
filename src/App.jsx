@@ -31,6 +31,19 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ProfileContextProvider from "./context/ProfileContext";
 import CategoryMenuForm from "./pages/CategoryMenuForm";
 import MenuContext from "./context/MenuContext";
+import ContactUs from "./pages/ContactUs";
+import GetSupport from "./pages/GetSupport";
+import LiveChatAbout from "./pages/LiveChatAbout";
+import FAQs from "./pages/FAQs";
+import SupportDashboard from "./pages/SupportDashboard";
+import ReviewandRatings from "./pages/ReviewsandRatings";  
+import RateOrder from "./pages/RateOrder";
+import RateOrder2 from "./pages/RateOrder2";
+import LeaveaReview from "./pages/LeaveaReview";
+import RateOrder3 from "./pages/RateOrder3";
+ 
+
+
 
 function App() {
   return (
@@ -40,7 +53,18 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/home" element={<Homepage />}></Route>
-              <Route element={<MainLayout />}>
+              <Route path="/contact-us" element={<ContactUs />}></Route>
+              <Route path="/get-support" element={<GetSupport />}></Route>
+              <Route path="/live-chat-about" element={<LiveChatAbout />}></Route>
+              <Route path="/faqs" element={<FAQs />}></Route>
+              <Route path="/support-dashboard" element={<SupportDashboard />}></Route>
+              <Route path="/reviews-and-ratings" element={<ReviewandRatings />}></Route>
+              <Route path="/rate-order" element={<RateOrder />}></Route>
+              <Route path="/rate-order2" element={<RateOrder2 />}></Route>
+              <Route path="/leave-a-review" element={<LeaveaReview />}></Route> 
+              <Route path="/rate-order3" element={<RateOrder3 />}></Route>
+               
+               <Route element={<MainLayout />}>
                 <Route path="/" element={<LandingPage />} />
                 {/* Other routes that needs the navbar can be nested here if needed */}
               </Route>

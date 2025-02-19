@@ -149,6 +149,8 @@ const Navbar = () => {
           <NavLink to={user !== null ? "/Adminhome/Dashboard" : "/Sign-up"}>
             <summary className="list-none">Admin</summary>
           </NavLink>
+          <NavLink to="/contact-us">Contact Us</NavLink>
+          <NavLink to="/support-dashboard">Support</NavLink>
           <a className="py-2">Locations</a>
           <a className="py-2">About Us</a>
           <NavLink

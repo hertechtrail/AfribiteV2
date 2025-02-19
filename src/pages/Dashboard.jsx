@@ -1,4 +1,4 @@
-import bannerImage from "../assets/image.png";
+   import bannerImage from "../assets/image.png";
 import dishIcon from "../assets/dishicon.png";
 import vector from "../assets/Vector.png";
 import { IoIosArrowDropdown } from "react-icons/io";

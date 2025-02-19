@@ -3,15 +3,13 @@ import { BiCube } from "react-icons/bi";
 import { FiOctagon } from "react-icons/fi";
 import { HiOutlineSquaresPlus } from "react-icons/hi2";
 import { MdLogout } from "react-icons/md";
-import { FaRegBell } from "react-icons/fa";
+import { FaRegBell, FaPhoneAlt, FaHeadset, FaRegWindowClose } from "react-icons/fa"; 
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { FaRegWindowClose } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { displayContext } from "../context/display";
 import { useAuth } from "../context/AuthenticationContext";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useState, useEffect } from "react";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,7 +20,7 @@ const AdminSidebar = () => {
   const [menuEmpty, setMenu] = useState(true);
   const { logOut } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(() => {
     const db = getFirestore();
@@ -31,14 +29,7 @@ const AdminSidebar = () => {
     const checkUserDocument = async (user) => {
       console.log("Authenticated user:", user);
       try {
-        console.log(user.uid);
-
-        // Reference to the user's document in Firestore
         const userRef = doc(db, "menu", user.uid);
-
-        console.log("Document path:", userRef.path);
-
-        // Get the document snapshot
         const userSnap = await getDoc(userRef);
 
         if (userSnap.exists()) {
@@ -61,32 +52,16 @@ const AdminSidebar = () => {
       }
     });
 
-    // Cleanup the subscription on component unmount
     return () => unsubscribe();
   }, []);
 
   const handleLogout = async () => {
     try {
       await logOut();
-      // toast.success("Logout successful!", {
-      //   position: "top-center",
-      // });
-      // setTimeout(() => {
-      //   // Redirect to the respective category page
-      //   navigate("/");
-      // }, 2000);
       navigate("/");
-      // setTimeout(() => {
-      //   // Redirect to the respective category page
-      //   toast.success("Logout successful!", {
-      //     position: "top-center",
-      //   });
-      // }, 3000);
     } catch (e) {
       console.error("Error logging out:", e);
-      toast.error("Error logging out!", {
-        position: "top-center",
-      });
+      toast.error("Error logging out!", { position: "top-center" });
     }
   };
 
@@ -102,76 +77,62 @@ const AdminSidebar = () => {
       />
 
       <div className="flex flex-col gap-2">
-        <img src={logo} alt="" className="w-fit mx-auto" />
-        <p
-          className={`${
-            visible ? "hidden" : ""
-          } font-extrabold text-2xl lg:text-4xl text-white text-center`}
-        >
+        <img src={logo} alt="Logo" className="w-fit mx-auto" />
+        <p className={`font-extrabold text-2xl lg:text-4xl text-white text-center ${visible ? "hidden" : ""}`}>
           AfriBite
         </p>
       </div>
 
-      <div className="flex flex-col gap-3  lg:text-lg text-white/50 row-span-2 justify-end">
+      <div className="flex flex-col gap-2 lg:text-lg mt-60 text-white/50 row-span-2 justify-end">
         <NavLink to="/Adminhome/Dashboard">
-          <div
-            onClick={() => setVisible(false)}
-            className="flex items-center gap-4"
-          >
-            <PiCirclesFourFill className={`${location.pathname === '/Adminhome/Dashboard'? 'bg-white' : 'bg-white/50'} rounded-full  text-[#E2725B]`} />{" "}
+          <div onClick={() => setVisible(false)} className="flex items-center gap-4">
+            <PiCirclesFourFill className={`${location.pathname === '/Adminhome/Dashboard' ? 'bg-white' : 'bg-white/50'} rounded-full text-[#E2725B]`} />
             Dashboard
           </div>
         </NavLink>
         <NavLink to="/Adminhome/Promotions">
-          <div
-            onClick={() => setVisible(false)}
-            className="flex items-center gap-4 "
-          >
+          <div onClick={() => setVisible(false)} className="flex items-center gap-4">
             <BiCube />
             Promotions
           </div>
         </NavLink>
         <NavLink to="/Adminhome/Advert">
-          <div
-            onClick={() => setVisible(false)}
-            className="flex items-center gap-4 "
-          >
+          <div onClick={() => setVisible(false)} className="flex items-center gap-4">
             <FiOctagon />
             Advertisement
           </div>
         </NavLink>
-        <NavLink
-          to={menuEmpty ? "/Adminhome/CreateMenu" : "/Adminhome/MainDish"}
-        >
-          <div
-            onClick={() => setVisible(false)}
-            className="flex items-center gap-4 "
-          >
+        <NavLink to={menuEmpty ? "/Adminhome/CreateMenu" : "/Adminhome/MainDish"}>
+          <div onClick={() => setVisible(false)} className="flex items-center gap-4">
             <HiOutlineSquaresPlus />
             Menu
           </div>
         </NavLink>
-  
         <NavLink to="/Adminhome/Notifications">
-          <div
-            onClick={() => setVisible(false)}
-            className="flex items-center gap-4 "
-          >
+          <div onClick={() => setVisible(false)} className="flex items-center gap-4">
             <FaRegBell />
             Notifications
           </div>
         </NavLink>
+        <NavLink to="/support-dashboard"> 
+  <div onClick={() => setVisible(false)} className="flex items-center gap-4">
+    <FaHeadset className="text-[#E2725B]" />
+    Support
+  </div>
+</NavLink>
+
+       
+      <NavLink to="/live-chat-about">
+          <div onClick={() => setVisible(false)} className="flex items-center gap-4">
+            <FaPhoneAlt className="text-[#E2725B]" />
+           Live Chat
+          </div>
+        </NavLink> 
+
       </div>
 
-      <div
-        className={` ${
-          visible ? "flex-1" : ""
-        } flex items-end justify-center row-span-2 gap-2 mb-8`}
-      >
-        <Link
-          onClick={handleLogout}
-          className="flex items-end justify-center row-span-2 gap-2 mb-8"
-        >
+      <div className={`flex items-end justify-center row-span-2 gap-2 mb-8`}>
+        <Link onClick={handleLogout} className="flex items-end justify-center gap-2 mb-8">
           <MdLogout className="sm:text-2xl" /> Log out
         </Link>
         <ToastContainer />

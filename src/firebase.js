@@ -4,13 +4,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+apiKey: "AIzaSyCev5ZzSIDw4RBP5yDxykstJRrQ0wODyvU",
+authDomain: "afribitev2.firebaseapp.com",
+projectId: "afribitev2",
+storageBucket: "afribitev2.firebasestorage.app",
+messagingSenderId: "278799664311",
+appId: "1:278799664311:web:9c617b2c6a03f23b1cf932",
+measurementId: "G-ERFRW7DTP2"
 };
 
 const app = initializeApp(firebaseConfig);
