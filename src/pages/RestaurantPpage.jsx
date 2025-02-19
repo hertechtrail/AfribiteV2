@@ -89,7 +89,10 @@ function RestaurantPpage() {
                 ))}
 
             </div>
-            <div className='flex justify-center items-center h-18 w-18 mt-16 gap-3  mb-6 text-lg'>
+
+                {/* page nav button */}
+
+            {/* <div className='flex justify-center items-center h-18 w-18 mt-16 gap-3  mb-6 text-lg'>
                <button className='rounded-md border border-gray-200 p-2 h-15 '><img src={first} alt="" /></button>
                <button className='rounded-md border border-gray-200 p-2 '><img src={prev} alt="" /></button>
                 <button className='rounded-md border border-gray-200  text-sm'>1</button>
@@ -99,7 +102,7 @@ function RestaurantPpage() {
                 <button>10</button>
                 <img src="" alt="" srcset="" />
                 <img src="" alt="" />
-            </div>
+            </div> */}
         </div>
         <Footer />
     </>

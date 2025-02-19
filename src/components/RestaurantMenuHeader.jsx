@@ -4,6 +4,8 @@ import arrow_down from "../assets/images/arrow_down.png";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import cart from '../assets/shopping.svg'
+import home from '../assets/frame.svg'
 
 const RestaurantMenuHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -85,14 +87,17 @@ const RestaurantMenuHeader = () => {
 
       {/* User Actions (Login and Cart) */}
       <div className="hidden md:flex md:items-center  gap-5  ms-10">
+
+      <NavLink to="" className="gap-2" className='flex items-center justify-center gap-3'>
+          <img src={cart} alt="" />
+          <p className="text-black">Cart</p>
+        </NavLink>
         <NavLink
           to="/user-sign-up"
-          className="bg-terra-cotta text-center justify-center flex items-center rounded-lg text-white w-[120px] h-10"
+          className="bg-terra-cotta text-center justify-center flex items-center rounded-lg text-white w-[150px] h-10 gap-1 px-2"
         >
-          Login/Sign Up
-        </NavLink>
-        <NavLink to="" className="gap-2">
-          Cart
+          <img src={home} alt="" />
+          <p className="text-white">Login/Sign Up</p>
         </NavLink>
       </div>
 

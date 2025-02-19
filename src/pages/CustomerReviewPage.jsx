@@ -15,7 +15,7 @@ function CustomerReviewPage() {
   return (
    <>
     <RestaurantMenuHeader />
-    <div className='w-[100vw]'>
+    <div className='w-[100vw] overflow-hidden'>
         <div className='flex justify-center items-center h-[200px] w-[full]'>
             <h1 className='text-white text-4xl bg-orange-600 px-10 py-3 text-center rounded-md'>Customer Review</h1>
         </div>

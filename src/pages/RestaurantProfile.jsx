@@ -21,23 +21,45 @@ function RestaurantProfile() {
 
     const [productDisplay, setProductDisplay] = useState(specialOffersData)
 
+    const [openFilter, setOpenFilter] = useState(false)
+
+    const [activeButton, setActiveButton] = useState('specialOffers')
+
+    const [changeTitle, setChangeTitle] = useState('Special Offers')
+
     const handleProductDisplay = (value) => {
         if (value === 'popularDishes'){
-            setProductDisplay(popularDishesData)
+            setActiveButton('popularDishes')
+            setChangeTitle('Popular Dishes')
+            setProductDisplay(popularDishesData)  
         } else if (value === 'specialOffers') {
+            setActiveButton('specialOffers')
+            setChangeTitle('Special Offers')
             setProductDisplay(specialOffersData)
         } else if (value === 'starters') {
+            setActiveButton('starters')
+            setChangeTitle('Starters')
             setProductDisplay(starterData)
         } else if (value === 'mainCourse') {
+            setActiveButton('mainCourse')
+            setChangeTitle('Main CourseS')
             setProductDisplay(mainCourseData)
         } else if (value === 'desert') {
+            setActiveButton('desert')
+            setChangeTitle('Dessert')
             setProductDisplay(desertData)
         } else if (value === 'drinks') {
+            setActiveButton('drinks')
+            setChangeTitle('Drinks')
             setProductDisplay(drinksData)
         } else {
+            setActiveButton('specialOffers')
+            setChangeTitle('Special Offers')
             setProductDisplay(specialOffersData)
         } 
     }
+
+
 
     
   return (
@@ -75,33 +97,33 @@ function RestaurantProfile() {
                 </div>
                 
                 <div className='bg-orange-500 h-[60px] mr-6 mt-[50px] flex gap-6 pl-[80px] justify-start items-center '>
-                    <p onClick={() => handleProductDisplay('specialOffers')} className=' text-black text-base p-2 rounded-md bg-yellow-400 '>Special Offers</p>
-                    <p onClick={() => handleProductDisplay('popularDishes')} className=' text-white text-base'>Popular Dishes</p>
-                    <p onClick={() => handleProductDisplay('starters')} className=' text-white text-base'>Starters</p>
-                    <p onClick={() => handleProductDisplay('mainCourse')} className=' text-white text-base'>Main Course</p>
-                    <p onClick={() => handleProductDisplay('desert')} className=' text-white text-base'>Desserts</p>
-                    <p onClick={() => handleProductDisplay('drinks')} className=' text-white text-base'>Drinks</p>
+                    <p onClick={() => handleProductDisplay('specialOffers')} className={`text-base ${activeButton === 'specialOffers' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Special Offers</p>
+                    <p onClick={() => handleProductDisplay('popularDishes')} className={`  text-base ${activeButton === 'popularDishes' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Popular Dishes</p>
+                    <p onClick={() => handleProductDisplay('starters')} className={` text-base  ${activeButton === 'starters' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Starters</p>
+                    <p onClick={() => handleProductDisplay('mainCourse')} className={` text-base ${activeButton === 'mainCourse' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Main Course</p>
+                    <p onClick={() => handleProductDisplay('desert')} className={` text-base ${activeButton === 'desert' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Desserts</p>
+                    <p onClick={() => handleProductDisplay('drinks')} className={` text-base ${activeButton === 'drinks' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Drinks</p>
                  </div>
 
                 <div className='mr-5'>
                     <div className='flex justify-between  mt-[30px]'>
-                        <div className='relative bg-[#f5f5f5]'>
-                            <input type="text"  placeholder='Search for our menu' className='bg-[#F5F5F5] h-[40px] w-[400px] rounded-md ml-10' />
+                        <div className='relative flex justify-center bg-[#f5f5f5]'>
+                            <input type="text"  placeholder='Search for our menu' className='bg-[#F5F5F5] h-[40px] w-[400px] rounded-md ml-14' />
                             <img src={search} className='absolute left-3 top-1/2 transform -translate-y-1/2 '/>
                         </div>
-                        <div className='bg-yellow-400 mr-1 text-xl rounded-md text-black flex justify-center items-center px-5 py-3 gap-2 hover:bg-yellow-300'>
+                        <div onClick={() => setOpenFilter(!openFilter)} className='bg-yellow-400 mr-1 text-xl rounded-md text-black flex justify-center items-center px-5 py-3 gap-2 hover:bg-yellow-300'>
                             <img src={filter} alt="" className='filter invert ' />
-                            <button>Filters</button>
+                            <p className='text-black'>Filters</p>
                         </div>
                     </div>
                 </div>
 
-                <div className='w-[137%] h-[700px] bg-[#FFEDE6] ml-[-0px] mt-6 rounded-lg flex items-start justify-between gap-14 p-20 px-40' >
+                <div className={`w-[137%] h-[700px] bg-[#FFEDE6] ml-[-0px] mt-6 rounded-lg ${openFilter ? "flex" : 'hidden'} items-start justify-between gap-14 p-20 px-40`} >
                     <div className='flex flex-col w-1/3 gap-8'>
                         <div className='flex flex-col'>
                             <h1  className='text-4xl font-semibold  mb-4'>Meal Types</h1>
                             <ul  className='list-disc pl-10 marker:text-3xl text-lg' >
-                                <li >Appetizers/Starters</li>
+                                <li >Appetizers/Starters</li> 
                                 <li>Appetizers/Starters</li>
                                 <li>Desserts</li>
                                 <li>Side Dish</li>
@@ -160,7 +182,7 @@ function RestaurantProfile() {
                 </div>  
                   
                 <div className=' mr-5'>
-                    <h1 className='text-2xl font-medium mt-6 '>Special Offers</h1>
+                    <h1 className='text-2xl font-semibold mt-6 '>{changeTitle}</h1>
                     <div className='grid grid-cols-2 gap-10 mt-6 '>
 
                              {productDisplay.map((item,index) => (
