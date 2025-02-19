@@ -88,7 +88,7 @@ const RestaurantMenuHeader = () => {
       {/* User Actions (Login and Cart) */}
       <div className="hidden md:flex md:items-center  gap-5  ms-10">
 
-      <NavLink to="" className="gap-2" className='flex items-center justify-center gap-3'>
+      <NavLink to="" className="gap-2 flex items-center justify-center">
           <img src={cart} alt="" />
           <p className="text-black">Cart</p>
         </NavLink>
