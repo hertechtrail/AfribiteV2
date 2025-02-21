@@ -2,9 +2,8 @@ import logo from "../assets/images/logo.png";
 import search from "../assets/images/search.png";
 import arrow_down from "../assets/images/arrow_down.png";
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoSearch, IoClose } from "react-icons/io5";
-
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Navbar = () => {
@@ -74,11 +73,16 @@ const Navbar = () => {
           <NavLink to="/" className="">
             Home
           </NavLink>
-          <details>
+          <Link to="/">
             <summary className="list-none">Menu</summary>
-          </details>
-          <NavLink to={user !== null ? "/Adminhome/Dashboard" : "/Sign-up"}>
-            <summary className="list-none">Admin</summary>
+          </Link>
+
+          <Link to="RestaurantPpage">
+            <summary className="list-none">Restaurant</summary>
+          </Link>
+
+          <NavLink to={user !== null ? "" : "/Sign-up"}>
+            <summary className="list-none"></summary>
           </NavLink>
           <a>Locations</a>
           <a>About Us</a>
@@ -86,15 +90,15 @@ const Navbar = () => {
       </div>
 
       {/* User Actions (Login and Cart) */}
-      <div className="hidden md:flex md:items-center  gap-5  ms-10">
+      <div className="hidden md:flex md:items-center ms-10">
+        <NavLink to="" className="gap-2">
+          Cart
+        </NavLink>
         <NavLink
           to="/user-sign-up"
           className="bg-terra-cotta text-center justify-center flex items-center rounded-lg text-white w-[120px] h-10"
         >
           Login/Sign Up
-        </NavLink>
-        <NavLink to="" className="gap-2">
-          Cart
         </NavLink>
       </div>
 
@@ -146,8 +150,12 @@ const Navbar = () => {
           <details>
             <summary className="py-2 list-none">Menu</summary>
           </details>
-          <NavLink to={user !== null ? "/Adminhome/Dashboard" : "/Sign-up"}>
-            <summary className="list-none">Admin</summary>
+          <Link to="RestaurantPpage">
+            <summary className="list-none">Restaurant</summary>
+          </Link>
+
+          <NavLink to={user !== null ? "/" : "/Sign-up"}>
+            <summary className="list-none"></summary>
           </NavLink>
           <a className="py-2">Locations</a>
           <a className="py-2">About Us</a>

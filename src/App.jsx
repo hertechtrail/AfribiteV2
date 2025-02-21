@@ -31,6 +31,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ProfileContextProvider from "./context/ProfileContext";
 import CategoryMenuForm from "./pages/CategoryMenuForm";
 import MenuContext from "./context/MenuContext";
+import RestaurantPpage from "./pages/RestaurantPpage";
+import RestaurantProfile from "./pages/RestaurantProfile";
+import CustomerReviewPage from "./pages/CustomerReviewPage";
 
 function App() {
   return (
@@ -39,7 +42,10 @@ function App() {
         <MenuContext>
           <BrowserRouter>
             <Routes>
-              <Route path="/home" element={<Homepage />}></Route>
+              <Route path="/home" element={<Homepage />} />
+              <Route path="/RestaurantPpage" element={<RestaurantPpage />} />
+              <Route path="/RestaurantProfile" element={<RestaurantProfile />} />
+              <Route path="/CustomerReviewPage" element={<CustomerReviewPage />} />
               <Route element={<MainLayout />}>
                 <Route path="/" element={<LandingPage />} />
                 {/* Other routes that needs the navbar can be nested here if needed */}

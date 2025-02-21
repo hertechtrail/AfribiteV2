@@ -125,7 +125,22 @@ Afribite is an innovative food delivery platform that focuses on promoting Afric
 - Created the Promotion page
 - added firebase authentification logic
 - added storage for promotion page
-  -added the profile structure and displayed it on the dashboard
+- added the profile structure and displayed it on the dashboard
+
+### Tofunmi Omojolomoloju
+
+- Created the header for the restaurant page
+- Built the footer section
+- Added a sidebar for the cart
+- Linked the restaurant page in the navbar (from the homepage to the restaurant profile page)
+- Built the restaurant menu page
+- Linked the restaurant page to the restaurant menu page
+- Built the restaurant menu page
+- Linked each nav button for food and drinks and other offers accordingly
+- Added a filter button on the menu page
+- Created a review page for restaurants
+- Placed necessary icons and images for UI elements
+- Added a dummy data file (dummyData.js) for UI structure
 
 ## Contributors
 
