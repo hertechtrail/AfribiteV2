@@ -97,12 +97,12 @@ function RestaurantProfile() {
                 </div>
                 
                 <div className='bg-orange-500 h-[60px] mr-6 mt-[50px] flex gap-6 pl-[80px] justify-start items-center '>
-                    <p onClick={() => handleProductDisplay('specialOffers')} className={`text-base ${activeButton === 'specialOffers' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Special Offers</p>
-                    <p onClick={() => handleProductDisplay('popularDishes')} className={`  text-base ${activeButton === 'popularDishes' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Popular Dishes</p>
-                    <p onClick={() => handleProductDisplay('starters')} className={` text-base  ${activeButton === 'starters' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Starters</p>
-                    <p onClick={() => handleProductDisplay('mainCourse')} className={` text-base ${activeButton === 'mainCourse' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Main Course</p>
-                    <p onClick={() => handleProductDisplay('desert')} className={` text-base ${activeButton === 'desert' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Desserts</p>
-                    <p onClick={() => handleProductDisplay('drinks')} className={` text-base ${activeButton === 'drinks' ? 'bg-yellow-400 p-2 rounded-md text-black' : 'bg-transparent text-white '} `}>Drinks</p>
+                    <p onClick={() => handleProductDisplay('specialOffers')} className={`text-base hover:scale-105 transition-transform duration-50  ${activeButton === 'specialOffers' ? 'bg-yellow-400 p-2 rounded-md text-black hover:scale-100 transition-transform duration-50' : 'bg-transparent text-white '} `}>Special Offers</p>
+                    <p onClick={() => handleProductDisplay('popularDishes')} className={`  text-base hover:scale-105 transition-transform duration-50  ${activeButton === 'popularDishes' ? 'bg-yellow-400 p-2 rounded-md text-black hover:scale-100 transition-transform duration-50' : 'bg-transparent text-white '} `}>Popular Dishes</p>
+                    <p onClick={() => handleProductDisplay('starters')} className={` text-base hover:scale-105 transition-transform duration-50   ${activeButton === 'starters' ? 'bg-yellow-400 p-2 rounded-md text-black hover:scale-100 transition-transform duration-50' : 'bg-transparent text-white '} `}>Starters</p>
+                    <p onClick={() => handleProductDisplay('mainCourse')} className={` text-base hover:scale-105 transition-transform duration-50  ${activeButton === 'mainCourse' ? 'bg-yellow-400 p-2 rounded-md text-black hover:scale-100 transition-transform duration-50' : 'bg-transparent text-white '} `}>Main Course</p>
+                    <p onClick={() => handleProductDisplay('desert')} className={` text-base hover:scale-110 transition-transform duration-50  ${activeButton === 'desert' ? 'bg-yellow-400 p-2 rounded-md text-black hover:scale-100 transition-transform duration-50' : 'bg-transparent text-white '} `}>Desserts</p>
+                    <p onClick={() => handleProductDisplay('drinks')} className={` text-base  hover:scale-110 transition-transform duration-50 ${activeButton === 'drinks' ? 'bg-yellow-400 p-2 rounded-md text-black hover:scale-100 transition-transform duration-50' : 'bg-transparent text-white '} `}>Drinks</p>
                  </div>
 
                 <div className='mr-5'>
@@ -195,7 +195,7 @@ function RestaurantProfile() {
                                                     </div>
                                                     ) : null }
                                                 </div>
-                                                <div className=' flex flex-col gap-3'>
+                                                <div className='w-full flex flex-col gap-3'>
                                                     <h1 className='font-semibold text-xl'>{item.food}</h1>
                                                     <p className='text-sm'>{item.description}</p>
                                                     {item.add ? (
